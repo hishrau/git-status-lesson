@@ -91,7 +91,4 @@ graph LR;
   tracked/comitted --> "changes" --> modified;
   modified --> "git add" --> staged;
   staged --> "changes" --> modified;
-
-%% стрелка без текста для примера: 
-  A --> B;
 ```
