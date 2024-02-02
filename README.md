@@ -86,8 +86,11 @@ git init
 
 ```mermaid
 graph LR;
-  untracked -- "git add" --> staged;
-  staged    -- "???"     --> tracked/comitted;
+  untracked --> "git add" --> staged;
+  staged    --> "git commit" --> tracked/comitted;
+  tracked/comitted --> "changes" --> modified;
+  modified --> "git add" --> staged;
+  staged --> "changes" --> modified;
 
 %% стрелка без текста для примера: 
   A --> B;
