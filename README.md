@@ -86,9 +86,21 @@ git init
 
 ```mermaid
 graph LR;
-  untracked -- "git add" --> staged;
-  staged    -- "???"     --> tracked/comitted;
-
-%% стрелка без текста для примера: 
-  A --> B;
+  untracked --> |git add| staged;
+  staged    --> |git commit| tracked/comitted;
+  tracked/comitted --> |changes| modified;
+  modified --> |git add| staged;
+  staged --> |changes| modified;
 ```
+
+### Выполнить unstage изменений файла — _git restore --staged \<file\>_
+- _git restore --staged ._ -- unstage the whole folder
+
+### Откатить» коммит — _git reset --hard \<commit hash\>_
+
+- реально удаляет последние коммиты начиная с указанного и возвращает прежнее состояние файлов
+
+### Откатить» изменения, которые не попали ни в staging, ни в коммит — _git restore \<file\>_
+
+- откатит файл до последней версии, сохраненной командами _add_ или _commit_
+
